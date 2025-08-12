@@ -1,9 +1,9 @@
-let userRole = "admin";
+let userRole = "enrolled";
 let accessLevel;
 
-if (userRole === "admin") {
+if (userRole === "enrolled") {
     accessLevel = "Full access granted";
-} else if (userRole === "manager") {
+} else if (userRole === "subscribed") {
     accessLevel = "Limited access granted";
 } else {
     accessLevel = "No access granted";
@@ -15,29 +15,29 @@ let isLoggedIn = true;
 let userMessage;
 
 if (isLoggedIn) {
-    if (userRole === "admin") {
-        userMessage = "Welcome, Admin!";
+    if (userRole === "enrolled") {
+        userMessage = "Welcome to your wellness plan with dietician support!";
     } else {
-        userMessage = "Welcome, User!";
+        userMessage = "Welcome to your wellness plan!";
     }
 } else {
-    userMessage = "Please log in to access the system.";
+    userMessage = "Please enroll or subscribe.";
 }
 
 console.log("User Message:", userMessage);
 
-let userType = "subscriber";
+let userType = "enrolled";
 let userCategory;
 
 switch (userType) {
-    case "admin":
-        userCategory = "Administrator";
+    case "enrolled":
+        userCategory = "Enrolled";
         break;
-    case "manager":
-        userCategory = "Manager";
-        break;
-    case "subscriber":
+    case "subscribed":
         userCategory = "Subscriber";
+        break;
+    case "employee":
+        userCategory = "No access";
         break;
     default:
         userCategory = "Unknown";
