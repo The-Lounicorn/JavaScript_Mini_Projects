@@ -55,4 +55,12 @@ function deletebook(index) {
     showbooks();            // Refresh the list
 }
 
+function deletebook(index) {
+    const book = books[index];
+    const confirmDelete = confirm(`Are you sure you want to delete "${book.name}" by ${book.authorName}?`);
+    if (confirmDelete) {
+        books.splice(index, 1); // Remove the book from the array
+        showbooks();            // Refresh the list
+    }
+}
 
