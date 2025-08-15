@@ -1,12 +1,12 @@
 const employees = [
-    { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 90000 },
-    { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 70000 },
-    { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 75000 },
-    { id: 4, name: 'Betty White', age: 60, department: 'Sales', salary: 85000 },
-    { id: 5, name: 'Emily Patterson', age: 45, department: 'Product Management', salary: 100000 },
-    { id: 6, name: 'Jack Nichols', age: 39, department: 'Sales', salary: 80000 },
-    { id: 7, name: 'Steven Colbert', age: 55, department: 'Sales', salary: 75000 },
-    { id: 8, name: 'Lucy Ball', age: 40, department: 'Training', salary: 90000 },
+    { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 90000, specialization: 'Employee IT support' },
+    { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 70000, specialization: 'Staffing' },
+    { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 75000, specialization: 'Payroll' },
+    { id: 4, name: 'Betty White', age: 60, department: 'Sales', salary: 85000, specialization: 'DTC Sales' },
+    { id: 5, name: 'Emily Patterson', age: 45, department: 'Product Management', salary: 100000, specialization: 'Software and Service' },
+    { id: 6, name: 'Jack Nichols', age: 39, department: 'Sales', salary: 80000, specialization: 'B2B Sales' },
+    { id: 7, name: 'Steven Colbert', age: 55, department: 'Sales', salary: 75000, specialization: 'B2B Sales' },
+    { id: 8, name: 'Lucy Ball', age: 40, department: 'Training', salary: 90000, specialization: 'Onboarding' },
     //... More employee records can be added here
   ];
 
@@ -36,5 +36,17 @@ function findEmployeeById(employeeId) {
       document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
      }
 }
+
+function findEmployeeBySpecialization(employeeSpecialization) {
+    const matchedEmployees = employees.filter(employee => employee.specialization === employeeSpecialization);
+    if (matchedEmployees.length > 0) {
+        document.getElementById('employeesDetails').innerHTML =
+            matchedEmployees.map(e => `<p>${e.id}: ${e.name} - ${e.department} - $${e.salary}</p>`).join('');
+    } else {
+        document.getElementById('employeesDetails').innerHTML =
+            'No employee found with this specialization';
+    }
+}
+
 
 
