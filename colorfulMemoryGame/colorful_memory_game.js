@@ -5,10 +5,13 @@ let score = 0;
 let timeLeft = 45;
 let gameInterval;
 
+
 const startbtn = document.getElementById('startbtn');
 const gameContainer = document.getElementById('game-container');
 const scoreElement = document.getElementById('score');
 const timerElement = document.getElementById('timer');
+const pausebtn = document.getElementById('pausebtn');
+let isPaused = false;
 
 function generateCards() {
     for (const color of cards) {
@@ -29,6 +32,8 @@ function shuffle(array) {
 }
 
 function handleCardClick(event) {
+    if (isPaused) return;
+
     const card = event.target;
     if (!card.classList.contains('card') || card.classList.contains('matched')) {
         return;
@@ -58,31 +63,38 @@ function checkMatch() {
 }
 
 function startGame() {
-    let timeLeft = 45;
+    isPaused = false;
+    pausebtn.textContent = 'Pause Game';
+    pausebtn.disabled = false;
     startbtn.disabled = true;
-    score = 0; 
+    score = 0;
     scoreElement.textContent = `Score: ${score}`;
-    startGameTimer(timeLeft);
     cards = shuffle(colors.concat(colors));
     selectedCards = [];
     gameContainer.innerHTML = '';
     generateCards();
     gameContainer.addEventListener('click', handleCardClick);
+    startGameTimer(timeLeft);
 }
 
 function startGameTimer(timeLeft) {
     timerElement.textContent = `Time Left: ${timeLeft}`;
     gameInterval = setInterval(() => {
-        timeLeft--;
-        timerElement.textContent = `Time Left: ${timeLeft}`;
-
-        if (timeLeft === 0) {
-            clearInterval(gameInterval);
-            let timeLeft = 45;
-            alert('Game Over!');
-            startbtn.disabled = false;
+        if (!isPaused) {
+            timeLeft--;
+            timerElement.textContent = `Time Left: ${timeLeft}`;
+            if (timeLeft === 0) {
+                clearInterval(gameInterval);
+                alert('Game Over!');
+                startbtn.disabled = false;
+                pausebtn.disabled = true;
+            }
         }
     }, 1000);
 }
 
 startbtn.addEventListener('click', startGame);
+pausebtn.addEventListener('click', () => {
+    isPaused = !isPaused;
+    pausebtn.textContent = isPaused ? 'Resume Game' : 'Pause Game';
+});
