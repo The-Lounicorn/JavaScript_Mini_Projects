@@ -1,0 +1,28 @@
+{
+  "articles": [
+    {
+      "headline": "Global Markets Rally Amid Economic Optimism",
+      "summary": "Stock markets around the world surged today following positive economic indicators and strong corporate earnings.",
+      "source": "Reuters",
+      "date": "2025-08-18"
+    },
+    {
+      "headline": "Breakthrough in Renewable Energy Technology",
+      "summary": "Scientists have developed a new solar panel material that significantly increases energy efficiency and lowers production costs.",
+      "source": "BBC News",
+      "date": "2025-08-17"
+    },
+    {
+      "headline": "Major Advancements in AI-Powered Healthcare",
+      "summary": "Hospitals are beginning to adopt AI systems to assist in diagnostics, treatment planning, and patient monitoring.",
+      "source": "The Verge",
+      "date": "2025-08-16"
+    },
+    {
+      "headline": "Historic Climate Agreement Reached at Global Summit",
+      "summary": "World leaders have signed a landmark agreement to reduce carbon emissions and invest in sustainable infrastructure.",
+      "source": "CNN",
+      "date": "2025-08-15"
+    }
+  ]
+}
