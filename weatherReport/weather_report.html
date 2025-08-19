@@ -2,17 +2,42 @@
 <html>
 <head>
   <title>Weather Report</title>
+  <style>
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
   <h1>Weather Report</h1>
 
   <form id="weatherForm">
-    <label for="city">City:</label>
-    <input type="text" id="city" name="city" required>
+    <div class="form-row">
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required>
 
-    <label for="state">State (2-letter code):</label>
-    <input type="text" id="state" name="state" maxlength="2" required>
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" maxlength="2" required>
+    </div>
 
     <button type="submit">Get Weather</button>
   </form>
